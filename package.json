@@ -1,0 +1,31 @@
+{
+  "name": "potential-enigma_v2.0",
+  "version": "1.0.0",
+  "description": "[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jclanc7507",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jclanc7507/potentialEnigma.git"
+  },
+  "keywords": [
+    "HTML",
+    "Markup",
+    "JavaScript",
+    "Node",
+    "Inquirer",
+    "Command",
+    "Prompt"
+  ],
+  "bugs": {
+    "url": "https://github.com/jclanc7507/potentialEnigma/issues"
+  },
+  "homepage": "https://github.com/jclanc7507/potentialEnigma#readme"
+}
