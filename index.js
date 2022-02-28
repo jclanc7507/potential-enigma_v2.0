@@ -131,9 +131,6 @@ Create a New README.md
                 'Apache License 2.0', 
                 'GNU General Public License v3.0', 
                 'MIT License',
-                'BSD 3-Clause "New" or "Revised" License',
-                'Boost Software License 1.0',
-                'Eclipse Public License 2.0',
                 'Mozilla Public License 2.0']
         },
         {
