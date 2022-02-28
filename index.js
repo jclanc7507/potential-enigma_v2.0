@@ -150,16 +150,9 @@ Create a New README.md
             }
         },
         {
-            type: 'confirm',
-            name: 'contributionConfirm',
-            message: 'Would you like to include contribution instructions?',
-            default: true
-        },
-        {
             type: 'input',
             name: 'contribution',
             message: 'Please provice some instructions on how to contribute to this project.',
-            when: ({ contribution }) => contribution
         },
         {
             type: 'input',
@@ -168,9 +161,6 @@ Create a New README.md
         }
     ])
 };
-// TODO: Create a function to write README file
-// include a table of contents and that those items are functional links
-function writeToFile(fileName, data) {}
 
 // writing files
 const writeFile = fileContent => {

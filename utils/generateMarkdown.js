@@ -61,19 +61,19 @@ ${data.license}
 
 
 
-## Contributing
+## Contribution
 ${data.contribution}
 
 
 
 
 
-## Testing
+## Test
 ${data.test}
 
 ---
 
-### Contact Info
+### Contact
 Name: ${data.name}
 
 Email: ${data.email}
