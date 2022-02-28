@@ -74,6 +74,19 @@ Create a New README.md
         },
         {
             type: 'input',
+            name: 'deployed',
+            message: 'What is the deployed link for your project? (Required)',
+            validate: deployed => {
+                if (deployed) {
+                    return true;
+                } else {
+                    console.log('Please enter a functional link.')
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
             name: 'description',
             message: 'Please provide a description of your project. (Required)',
             validate: descriptionInput => {
@@ -93,7 +106,7 @@ Create a New README.md
         },
         {
             type: 'input',
-            name: 'instructions',
+            name: 'installation',
             message: 'Please provide installation instructions.',
             when: ({ includeInstructions }) => includeInstructions
         },
@@ -118,21 +131,15 @@ Create a New README.md
                 'Apache License 2.0', 
                 'GNU General Public License v3.0', 
                 'MIT License',
-                'BSD 2-Clause "Simplified" License',
                 'BSD 3-Clause "New" or "Revised" License',
                 'Boost Software License 1.0',
-                'Creative Commons Zero v1.0 Universal',
                 'Eclipse Public License 2.0',
-                'GNU Affero General Public License v3.0',
-                'GNU General Public License v2.0',
-                'GNU Lesser General Public License v2.1',
-                'Mozilla Public License 2.0',
-                'The Unlicense',]
+                'Mozilla Public License 2.0']
         },
         {
             type: 'input',
             name: 'contributors',
-            message: 'Who contributed to this project? Please separate your answers with a space. (Required)',
+            message: 'Who contributed to this project? Please separate your answers with a comma. (Required)',
             validate: contributors => {
                 if (contributors) {
                     return true;
@@ -193,7 +200,7 @@ questions()
     // fulfills promise to write the file
     .then(writeFileResponse => {
         console.log(writeFileResponse);
-        return copyFile();
+        return writeFile();
     })
     // catches and console logs if there is an error
     .catch(err =>{
