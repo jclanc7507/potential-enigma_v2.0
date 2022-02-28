@@ -1,11 +1,18 @@
 // TODO: Include packages needed for this application
+const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 //Questions: choose a license w/badge&link, 
 
-const questions = () => {
+const questions = readmeData => {
+    console.log(`
+======================
+Create a New README.md
+======================
+`);
+
     return inquirer.prompt([
         {
             type: 'input',
@@ -67,6 +74,19 @@ const questions = () => {
         },
         {
             type: 'input',
+            name: 'deployed',
+            message: 'What is the deployed link for your project? (Required)',
+            validate: deployed => {
+                if (deployed) {
+                    return true;
+                } else {
+                    console.log('Please enter a functional link.')
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
             name: 'description',
             message: 'Please provide a description of your project. (Required)',
             validate: descriptionInput => {
@@ -86,7 +106,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'instructions',
+            name: 'installation',
             message: 'Please provide installation instructions.',
             when: ({ includeInstructions }) => includeInstructions
         },
@@ -111,21 +131,15 @@ const questions = () => {
                 'Apache License 2.0', 
                 'GNU General Public License v3.0', 
                 'MIT License',
-                'BSD 2-Clause "Simplified" License',
                 'BSD 3-Clause "New" or "Revised" License',
                 'Boost Software License 1.0',
-                'Creative Commons Zero v1.0 Universal',
                 'Eclipse Public License 2.0',
-                'GNU Affero General Public License v3.0',
-                'GNU General Public License v2.0',
-                'GNU Lesser General Public License v2.1',
-                'Mozilla Public License 2.0',
-                'The Unlicense',]
+                'Mozilla Public License 2.0']
         },
         {
             type: 'input',
             name: 'contributors',
-            message: 'Who contributed to this project? Please separate your answers with a space. (Required)',
+            message: 'Who contributed to this project? Please separate your answers with a comma. (Required)',
             validate: contributors => {
                 if (contributors) {
                     return true;
@@ -158,17 +172,37 @@ const questions = () => {
 // include a table of contents and that those items are functional links
 function writeToFile(fileName, data) {}
 
-// TODO: Create a function to initialize app
-function init() {}
+// writing files
+const writeFile = fileContent => {
+    return new Promise((resolve, reject) => {
+      fs.writeFile('./dist/README.md', fileContent, err => {
+        if (err) {
+          reject(err);
+          return;
+        }  
+        resolve({
+          ok: true,
+          message: 'README.md created.'
+        });
+      });
+    });
+};
 
 // Function call to initialize app
 questions()
     // writes new README.md file to dist folder
-    .then(pageMD => {
-        return writeToFile(pageMD);
+    .then(readmeData => {
+        return generateMarkdown(readmeData);
     })
-    // makes a new stylesheet
+    .then(pageMD => {
+        return writeFile(pageMD);
+    })
+    // fulfills promise to write the file
     .then(writeFileResponse => {
         console.log(writeFileResponse);
-        return copyFile();
+        return writeFile();
     })
+    // catches and console logs if there is an error
+    .catch(err =>{
+        console.log(err);
+    });
