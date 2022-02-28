@@ -1,48 +1,70 @@
-# **portfolioGenerator**
+# **r**
 
   ## Description
 
-  This project creates a dynamically generated index.html file through the Inquirer package via command prompts.
+  th
 
   ## Deployed Link
-  https://jclanc7507.github.io/portfolioGenerator/
+  https://jclanc7507.github.io/run-buddy/
 
   ## Table of Contents
 ----------------
 1. [Installation](#installation)
 2. [Usage](#usage)
 3. [Contributors](#contributors)
-4. [License](#license)
-5. [Contributing](#contribution)
-6. [Testing](#test)
-7. [Contact Info](#contact)
+4. [Contribution](#contribution)
+5. [Test](#test)
+6. [Contact Info](#contact)
+7. [License](#license)
+----------------
 
 ## Installation 
-1. Make sure your Node.js program is up to date. 2. Run `npm init` 3. Run `npm install` 4. Run `node app.js` 5. Follow the command prompts and enjoy! 
+undefined
+
+
+
+
 
 ## Usage
-This generator is useful when needing to create a more indepth boilerplate for your everyday HTML file-based projects.
+hw
+
+
+
+
 
 ## Contributors
-jclanc7507 jclanc7507
+k
 
-## License
-MIT License
+
+
 
 ## Contributing
 undefined
 
+
+
+
+
 ## Testing
-There are no included tests provided in this project.
+na
+
+
+
+
+## License
+undefined
 
 ---
 
 ### Contact Info
-Name: Jeremiah Clancy
-Email: jclanc7507@gmail.com
-GitHub Account: [jclanc7507](https://www.github.com/jclanc7507)
+Name: j
+
+Email: undefined
+
+GitHub Account: [j](https://www.github.com/j)
 
 ---
-@ 2022 Jeremiah Clancy
+@ 2022 j
+
 Confidential and Proprietary. All Rights Reserved.
 

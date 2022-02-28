@@ -50,6 +50,7 @@ Create a New README.md
             type: 'input',
             name: 'email',
             message: 'Please provide a valid email address. (Required)',
+            when: ({ emailConfirm }) => emailConfirm,
             validate: email => {
                 if (email) {
                     return true;
@@ -124,14 +125,30 @@ Create a New README.md
             }
         },
         {
-            type: 'list',
-            name: 'license',
-            message: 'Please choose a license for your project, otherwise leave blank.',
-            choices: [
-                'Apache License 2.0', 
-                'GNU General Public License v3.0', 
-                'MIT License',
-                'Mozilla Public License 2.0']
+            type: 'confirm',
+            name: 'apache',
+            message: 'Would you like to use the Apache License 2.0?',
+            default: false,
+            validate: apache => {
+                if (apache) {
+                    return true;
+                } else {
+                    return false;
+                }                
+            }
+        },
+        {
+            type: 'confirm',
+            name: 'gpl3',
+            message: 'Would you like to use the GNU General Public License v3.0?',
+            default: false,
+            validate: gpl3 => {
+                if (gpl3) {
+                    return true;
+                } else {
+                    return false;
+                }                
+            }
         },
         {
             type: 'input',
@@ -156,7 +173,7 @@ Create a New README.md
             type: 'input',
             name: 'contribution',
             message: 'Please provice some instructions on how to contribute to this project.',
-            when: ({ contribution }) => contribution
+            when: ({ contributionConfirm }) => contributionConfirm
         },
         {
             type: 'input',
